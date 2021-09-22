@@ -1,7 +1,9 @@
 package ru.fbtw.tagger.handlers;
 
-public interface EventHandler<E> {
-	String handle(E event);
+import ru.fbtw.tagger.domain.events.EventType;
 
-	String getEventName();
+public interface EventHandler {
+	String handle(Object event);
+
+	EventType getEventType();
 }

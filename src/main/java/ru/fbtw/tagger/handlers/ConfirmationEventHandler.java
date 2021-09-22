@@ -2,10 +2,10 @@ package ru.fbtw.tagger.handlers;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import ru.fbtw.tagger.domain.events.Confirmation;
+import ru.fbtw.tagger.domain.events.EventType;
 
 @Component
-public class ConfirmationEventHandler implements EventHandler<Confirmation>{
+public class ConfirmationEventHandler implements EventHandler{
 
 	private final String activationCode;
 
@@ -14,12 +14,12 @@ public class ConfirmationEventHandler implements EventHandler<Confirmation>{
 	}
 
 	@Override
-	public String handle(Confirmation event) {
+	public String handle(Object event) {
 		return activationCode;
 	}
 
 	@Override
-	public String getEventName() {
-		return "confirmation";
+	public EventType getEventType() {
+		return EventType.CONFIRMATION;
 	}
 }
