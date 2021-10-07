@@ -1,19 +1,17 @@
-package ru.fbtw.tagger.domain.events;
+package ru.fbtw.tagger.domain.dto.events;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.vk.api.sdk.client.VkApiClient;
+import com.google.gson.annotations.SerializedName;
 import com.vk.api.sdk.objects.client.InfoForBots;
 import com.vk.api.sdk.objects.messages.Message;
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import lombok.*;
 
 @Data
 @AllArgsConstructor
 public class NewMessageEvent {
-	@JsonProperty("message")
+	@SerializedName("message")
 	private Message message;
 
-	@JsonProperty("client_info")
+	@SerializedName("client_info")
 	private InfoForBots clientInfo;
 
 	public NewMessageEvent() {

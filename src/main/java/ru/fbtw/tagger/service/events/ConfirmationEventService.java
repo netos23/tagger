@@ -1,15 +1,15 @@
-package ru.fbtw.tagger.handlers;
+package ru.fbtw.tagger.service.events;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-import ru.fbtw.tagger.domain.events.EventType;
+import ru.fbtw.tagger.domain.enums.EventType;
 
 @Component
-public class ConfirmationEventHandler implements EventHandler{
+public class ConfirmationEventService implements EventService {
 
 	private final String activationCode;
 
-	public ConfirmationEventHandler(@Value("${activation-code}") String activationCode) {
+	public ConfirmationEventService(@Value("${activation-code}") String activationCode) {
 		this.activationCode = activationCode;
 	}
 
